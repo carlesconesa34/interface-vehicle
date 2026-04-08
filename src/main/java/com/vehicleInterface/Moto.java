@@ -50,19 +50,54 @@ public class Moto extends Vehicle implements Refillable, Repairable {
         this.petrol = petrol;
     }
 
-    // Custom methods
+       // Custom methods
     /**
      * Method description
      */
-    public void methodName() {
-        // TODO: Implement method
+    @Override
+    public boolean repair() {
+        if (!isAvailable() && getMoney() >= Repairable.MOTO) {
+            setMoney(getMoney() - Repairable.MOTO);
+            setAvailable(true);
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public boolean collision() {
-        if (isAvailable()) {
-            setAvailable(false);
+    public boolean move(char pos) {
+        if (isAvailable() && petrol >= Movable.MOTO_CONSUM) {
+            switch (pos) {
+                case 'x':
+                    setPosX(getPosX() + Movable.MOTO);
+                    break;
+                case 'y':
+                    setPosY(getPosY() + Movable.MOTO);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+            petrol -= Movable.MOTO_CONSUM;
+
             return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean refill() {
+        if (isAvailable()) {
+            int liters = Refillable.MOTO - petrol;
+            int cost = liters * Refillable.PRICE;
+
+            if (petrol < Refillable.MOTO && getMoney() >= cost) {
+                petrol += liters;
+                setMoney(getMoney() - cost);
+                return true;
+            }
         }
 
         return false;
