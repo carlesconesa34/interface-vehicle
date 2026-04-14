@@ -115,7 +115,7 @@ public class Truck extends Vehicle implements Refillable, Repairable{
      */
     @Override
     public String toString() {
-        return "Truck -> " + super.toString();
+        return "Truck [petrol=" + petrol +", load=" + load + super.toString();
     }
 }
 

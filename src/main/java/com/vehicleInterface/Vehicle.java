@@ -144,10 +144,10 @@ public abstract class Vehicle implements Movable {
     @Override
     public String toString() {
         return "Vehicle ["
-                + "posX=" + posX
-                + ", posY=" + posY
-                + ", money=" + money
-                + ", available=" + available
-                + ']';
+            + "posX=" + posX
+            + ", posY=" + posY
+            + ", money=" + money
+            + ", available=" + available
+            + ']';
     }
 }

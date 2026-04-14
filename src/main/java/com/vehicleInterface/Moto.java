@@ -110,6 +110,6 @@ public class Moto extends Vehicle implements Refillable, Repairable {
      */
     @Override
     public String toString() {
-        return "Moto -> " + super.toString();
+        return "Moto [petrol=" + petrol +", " + super.toString();
     }
 }
