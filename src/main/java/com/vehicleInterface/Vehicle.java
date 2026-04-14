@@ -1,7 +1,6 @@
 /*
  * Vehicle.java 2026-04-07
  *
- *
  * ©Copyright 2026 Carles Conesa Mañosa <a251158cc@correu.escoladeltreball.org>
  *
  * This is free software, licensed under the MIT license.
