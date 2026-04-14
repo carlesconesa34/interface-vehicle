@@ -10,7 +10,7 @@
 package com.vehicleInterface;
 
 /**
- * Class description
+ * Represents a car in the simulation.
  *
  * @author Carles Conesa Mañosa
  * @version 1.0
@@ -65,6 +65,16 @@ public class Car extends Vehicle implements Refillable, Repairable {
         return false;
     }
 
+    /**
+     * Moves the car in the specified direction.
+     *
+     * Movement is only possible if the bike is available. Unlike motorized
+     * vehicles, this does not consume petrol.
+     *
+     *
+     * @param pos The axis to move along ('x' or 'y').
+     * @return true if movement was successful; false otherwise.
+     */
     @Override
     public boolean move(char pos) {
         if (isAvailable() && petrol >= Movable.CAR_CONSUM) {
@@ -87,6 +97,14 @@ public class Car extends Vehicle implements Refillable, Repairable {
         return false;
     }
 
+    /**
+     * Refills the car's tank to its maximum capacity.
+     *
+     * Only possible if the vehicle is operational and has enough money to cover
+     * the cost.
+     *
+     * @return true if the tank was filled successfully.
+     */
     @Override
     public boolean refill() {
         if (isAvailable()) {
@@ -104,12 +122,12 @@ public class Car extends Vehicle implements Refillable, Repairable {
     }
 
     /**
-     * Returns a string representation of this object.
+     * Returns a string representation of this car.
      *
-     * @return a string representation of the object
+     * @return a string representation of the car
      */
     @Override
     public String toString() {
-        return "Car [petrol=" + petrol +", " + super.toString();
+        return "Car [petrol=" + petrol + ", " + super.toString();
     }
 }

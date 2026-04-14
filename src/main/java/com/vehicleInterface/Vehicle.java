@@ -10,7 +10,13 @@
 package com.vehicleInterface;
 
 /**
- * Class description
+ * Represents a generic vehicle within the simulation.
+ *
+ * This abstract class provides the core attributes and behaviors shared by all
+ * vehicles, including positioning, financial management, and operational
+ * status.
+ *
+ * It cannot be instantiated directly.
  *
  * @author Carles Conesa Mañosa
  * @version 1.0
@@ -18,29 +24,33 @@ package com.vehicleInterface;
  */
 public abstract class Vehicle implements Movable {
 
-    // Attributes
     /**
-     * Description of attribute1
+     * Current horizontal position of the vehicle.
      */
     private int posX;
 
     /**
-     * Description of attribute2
+     * Current vertical position of the vehicle.
      */
     private int posY;
 
     /**
-     * Description of attribute3
+     * Available funds for the vehicle to pay for repairs or fuel.
      */
     private int money;
 
     /**
-     * Description of attribute3
+     * Operational status of the vehicle.
      */
     private boolean available;
 
     /**
-     * Default constructor. Initializes all attributes with default values.
+     * Constructs a Vehicle with specified position, money, and status.
+     *
+     * @param posX Initial X coordinate.
+     * @param posY Initial Y coordinate.
+     * @param money Initial funds.
+     * @param available Initial operational status.
      */
     public Vehicle(int posX, int posY, int money, boolean available) {
         this.posX = posX;
@@ -49,45 +59,44 @@ public abstract class Vehicle implements Movable {
         this.available = available;
     }
 
-    // Getters and Setters
     /**
-     * Gets the value of attribute1.
+     * Gets the value of posX.
      *
-     * @return the attribute1
+     * @return the poxX
      */
     public int getPosX() {
         return posX;
     }
 
     /**
-     * Sets the value of attribute1.
+     * Sets the value of posX.
      *
-     * @param posX the attribute1 to set
+     * @param posX the posX to set
      */
     public void setPosX(int posX) {
         this.posX = posX;
     }
 
     /**
-     * Gets the value of attribute2.
+     * Gets the value of posY.
      *
-     * @return the attribute2
+     * @return the posY
      */
     public int getPosY() {
         return posY;
     }
 
     /**
-     * Sets the value of attribute2.
+     * Sets the value of posY.
      *
-     * @param posY the attribute2 to set
+     * @param posY the posY to set
      */
     public void setPosY(int posY) {
         this.posY = posY;
     }
 
     /**
-     * Gets the value of attribute3.
+     * Gets the value of money.
      *
      * @return the money
      */
@@ -96,16 +105,16 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * Sets the value of attribute3.
+     * Sets the value of money.
      *
-     * @param money the attribute3 to set
+     * @param money the money to set
      */
     public void setMoney(int money) {
         this.money = money;
     }
 
     /**
-     * Gets the value of attribute3.
+     * Gets the value of available.
      *
      * @return available
      */
@@ -114,17 +123,21 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * Sets the value of attribute3.
+     * Sets the value of available.
      *
-     * @param available the attribute3 to set
+     * @param available the available to set
      */
     public void setAvailable(boolean available) {
         this.available = available;
     }
 
-    // Custom methods
     /**
-     * Method description
+     * Simulates a vehicle collision.
+     *
+     * If the vehicle is currently available, its status is changed to false.
+     *
+     * @return true if the collision was successfully processed; false if it was
+     * already disabled.
      */
     @Override
     public boolean collision() {
@@ -137,17 +150,17 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * Returns a string representation of this object.
+     * Returns a string representation of this vehicle.
      *
-     * @return a string representation of the object
+     * @return a string representation of the vehicle
      */
     @Override
     public String toString() {
         return "Vehicle ["
-            + "posX=" + posX
-            + ", posY=" + posY
-            + ", money=" + money
-            + ", available=" + available
-            + ']';
+                + "posX=" + posX
+                + ", posY=" + posY
+                + ", money=" + money
+                + ", available=" + available
+                + ']';
     }
 }

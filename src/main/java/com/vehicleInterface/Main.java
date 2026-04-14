@@ -3,9 +3,10 @@ package com.vehicleInterface;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         Car myCar = new Car(0, 0, 1000, true, 100);
         int option;
 
@@ -20,7 +21,7 @@ public class Main {
             System.out.println("7. GET MONEY CAR");
             System.out.println("0. LEAVE.");
             System.out.print("OPTION (0..7) ? ");
-            
+
             try {
                 option = Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {
